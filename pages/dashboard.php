@@ -53,11 +53,11 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="style/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../style/dashboard.css">
 </head>
 <body>
     <h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-    <a href="logout.php">Logout</a>
+    <a href="../logout.php">Logout</a>
 
     <h3>Edit Student Marks</h3>
     <?php if(isset($success_message)) { ?>

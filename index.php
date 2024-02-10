@@ -1,3 +1,4 @@
+<?php include('includes/visitor.php'); ?>
 <!DOCTYPE html>
 
 <html lang="eng">
@@ -35,6 +36,8 @@
 </html>
 
 <?php
+
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -60,10 +63,14 @@ if (isset($_POST['submit'])) {
     $datetime_sql = "SELECT date FROM student WHERE student_id = $student_id";
     $datetime_result = $conn->query($datetime_sql);
     $datetime_row = $datetime_result->fetch_assoc();
-    $datetime = $datetime_row['date'];
+    if ($datetime_row) {
+        $datetime = $datetime_row['date'];
+    } else {
+        $datetime = "Not available";
+    }
 
     echo "<br><br><br><h2 style='text-align: center;'>Results</h2>";
-    echo "<h4 style='text-align: center;'>Last Update      -    ".$datetime."</h4>";
+    echo "<h4 style='text-align: center;'>Last Update      -    " . $datetime . "</h4>";
     echo "<table style='border-collapse: collapse; width: 100%;'>";
     echo "<tr><th style='border: 1px solid #000; padding: 8px;'>Student ID</th><th style='border: 1px solid #000; padding: 8px;'>Marks for $week</th></tr>";
 
@@ -88,9 +95,10 @@ if (isset($_POST['submit'])) {
 
         }
     } else {
-        echo "No results found for student ID: " . $student_id . " and week: " . $week;
+        echo "<center><h3 style='color: crimson'>No results found for student ID: " . $student_id . " and week: " . $week . "</h3></center>";
     }
 }
 $conn->close();
 ?>
+
 

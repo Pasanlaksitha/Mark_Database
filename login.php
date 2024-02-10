@@ -18,20 +18,29 @@ if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $encrypted_password = hash('sha256', $password);
+
+    $sql = "SELECT * FROM users WHERE username='$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        // Authentication successful
-        $_SESSION['username'] = $username;
-        header('Location: dashboard.php');
-        exit;
+        $row = $result->fetch_assoc();
+        $stored_password = $row['password'];
+
+        // Compare the encrypted passwords
+        if ($encrypted_password === $stored_password) {
+            // Authentication successful
+            $_SESSION['username'] = $username;
+            header('Location: pages/dashboard.php');
+            exit;
+        } else {
+            $error_message = "Wrong password";
+        }
     } else {
-        $error_message = "Invalid username or password";
+        $error_message = "User not found";
     }
 }
 
-// Close database connection
 $conn->close();
 ?>
 <!DOCTYPE html>
