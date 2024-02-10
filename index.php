@@ -4,18 +4,7 @@
 
 <head>
     <title>Student Marks</title>
-    <style>
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 

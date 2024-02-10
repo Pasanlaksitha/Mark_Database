@@ -31,9 +31,9 @@ if(isset($_POST['login'])) {
     }
 }
 
+// Close database connection
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +43,8 @@ $conn->close();
     <link rel="stylesheet" type="text/css" href="style/login.css">
 </head>
 <body>
-    <h1>Login</h1><br>
+<div class="container">
+    <h1>Login</h1>
     <?php if(isset($error_message)) { ?>
         <p><?php echo $error_message; ?></p>
     <?php } ?>
@@ -54,5 +55,6 @@ $conn->close();
         <input type="password" id="password" name="password" required><br><br>
         <input type="submit" name="login" value="Login">
     </form>
+</div>
 </body>
 </html>

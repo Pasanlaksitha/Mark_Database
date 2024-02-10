@@ -5,8 +5,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    /* Change align-items to flex-start */
-    align-items: flex-start;
+    align-items: center; /* Change from flex-start to center */
     height: 100vh;
 }
 
@@ -15,13 +14,10 @@ form {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 100px;
 }
 
-h2 {
+h1 {
     text-align: center;
-    align-content: center;
-
 }
 
 label {
@@ -34,7 +30,7 @@ input[type="password"] {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 4px;
     box-sizing: border-box;
 }
 
