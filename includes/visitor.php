@@ -1,49 +1,49 @@
 <?php
-// Get visitor details
+
 $ip = $_SERVER['REMOTE_ADDR'];
 $agent = $_SERVER['HTTP_USER_AGENT'];
 
-$apiurl = 'https://freegeoip.app/json/' . $ip;
-$ch = curl_init($apiurl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$apiResponse = curl_exec($ch);
-curl_close($ch);
-$ipData = json_decode($apiResponse, true);
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "student_mark_db";
+$api_url = "https://ipinfo.io/$ip?token=your_token_here";
+$api_response = file_get_contents($api_url);
+$visitor_data = json_decode($api_response, true);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+if ($visitor_data !== null) {
+    // Extract relevant information
+    $ip_address = $visitor_data['ip'];
+    $city = $visitor_data['city'];
+    $region = $visitor_data['region'];
+    $country = $visitor_data['country'];
+    $location = $visitor_data['loc'];
+    $organization = $visitor_data['org'];
+    $postal_code = $visitor_data['postal'];
+    $timezone = $visitor_data['timezone'];
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    $db_host = "localhost";
+    $db_user = "your_username";
+    $db_pass = "your_password";
+    $db_name = "your_database_name";
 
-// Insert visitor details into database
-if (!empty($ipData)) {
-    $country_code = $ipData['country_code'];
-    $country_name = $ipData['country_name'];
-    $region_code = $ipData['region_code'];
-    $region_name = $ipData['region_name'];
-    $city = $ipData['city'];
-    $zip_code = $ipData['zip_code'];
-    $latitude = $ipData['latitude'];
-    $longitude = $ipData['longitude'];
-    $time_zone = $ipData['time_zone'];
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    $sql = "INSERT INTO visitor_tracking (address, agent, latitude, longitude, country_name, region_name, city, zip_code, time_zone)
-            VALUES ('$ip', '$agent', '$latitude', '$longitude', '$country_name', '$region_name', '$city', '$zip_code', '$time_zone')";
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "INSERT INTO visitor (ip_address, agent, city, region, country, location, organization, postal_code, timezone) 
+            VALUES ('$ip_address', '$agent', '$city', '$region', '$country', '$location', '$organization', '$postal_code', '$timezone')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Visitor details recorded successfully.";
+        //echo "New record created successfully";
     } else {
-        echo "Error recording visitor details: " . $conn->error;
+        //echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+    $conn->close();
+}
+else {
+ //echo "Error: Unable to retrieve visitor data";
 }
 
-$conn->close();
+
 ?>

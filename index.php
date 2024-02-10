@@ -1,4 +1,4 @@
-<?php include('includes/visitor.php'); ?>
+
 <!DOCTYPE html>
 
 <html lang="eng">
@@ -36,7 +36,7 @@
 </html>
 
 <?php
-
+require './includes/visitor.php';
 
 // Database connection
 $servername = "localhost";

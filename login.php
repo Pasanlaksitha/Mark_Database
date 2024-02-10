@@ -1,4 +1,5 @@
 <?php
+require './includes/visitor.php';
 session_start();
 
 // Database connection
@@ -14,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_POST['login'])) {
+if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -54,7 +55,7 @@ $conn->close();
 <body>
 <div class="container">
     <h1>Login</h1>
-    <?php if(isset($error_message)) { ?>
+    <?php if (isset($error_message)) { ?>
         <p><?php echo $error_message; ?></p>
     <?php } ?>
     <form method="post" action="">

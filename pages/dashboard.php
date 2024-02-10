@@ -1,5 +1,6 @@
 
 <?php
+require './includes/visitor.php';
 session_start();
 
 if(!isset($_SESSION['username'])) {
