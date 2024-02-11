@@ -1,5 +1,5 @@
 # Student Marks Management System 
-## Overview (University Project - UoW)
+## Overview (University Project)
 The Student Marks Management System is a web-based application designed to manage and retrieve student marks data from a database. It allows users to input a student ID and select a specific week to retrieve and display the corresponding marks for that student. Additionally, the system calculates and displays the rank of the student for the selected week based on their marks.
 
 ## Features
