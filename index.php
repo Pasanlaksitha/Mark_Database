@@ -6,7 +6,7 @@
 <head>
     <title>Student Marks</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 </html>
 
 <?php
-require './includes/visitor.php';
+//require './includes/visitor.php';
 
 // Database connection
 $servername = "localhost";
@@ -69,15 +69,15 @@ if (isset($_POST['submit'])) {
         $datetime = "Not available";
     }
 
-    echo "<br><br><br><h2 style='text-align: center;'>Results</h2>";
-    echo "<h4 style='text-align: center;'>Last Update      -    " . $datetime . "</h4>";
-    echo "<table style='border-collapse: collapse; width: 100%;'>";
-    echo "<tr><th style='border: 1px solid #000; padding: 8px;'>Student ID</th><th style='border: 1px solid #000; padding: 8px;'>Marks for $week</th></tr>";
+    echo "<br><br><br><h2 css='text-align: center;'>Results</h2>";
+    echo "<h4 css='text-align: center;'>Last Update      -    " . $datetime . "</h4>";
+    echo "<table css='border-collapse: collapse; width: 100%;'>";
+    echo "<tr><th css='border: 1px solid #000; padding: 8px;'>Student ID</th><th css='border: 1px solid #000; padding: 8px;'>Marks for $week</th></tr>";
 
     if ($marks_result->num_rows > 0) {
         while ($row = $marks_result->fetch_assoc()) {
-            echo "<tr><td style='border: 1px solid #000; padding: 8px; text-align: center'>" . $student_id . "</td>";
-            echo "<td style='border: 1px solid #000; padding: 8px; text-align: center'>" . $row[$week] . "</td></tr></table><br>";
+            echo "<tr><td css='border: 1px solid #000; padding: 8px; text-align: center'>" . $student_id . "</td>";
+            echo "<td css='border: 1px solid #000; padding: 8px; text-align: center'>" . $row[$week] . "</td></tr></table><br>";
 
             $rank_sql = "SELECT student_id, rank FROM (SELECT student_id, RANK() OVER (ORDER BY $week DESC) AS rank FROM student WHERE $week IS NOT NULL) AS ranked_table WHERE student_id = $student_id";
 
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
             if ($rank_result->num_rows > 0) {
                 // Output rank data
                 while ($rank_row = $rank_result->fetch_assoc()) {
-                    echo "<center><h3 style='color: crimson'>Rank     -     " . $rank_row["rank"] . "</h3></center>";
+                    echo "<center><h3 css='color: crimson'>Rank     -     " . $rank_row["rank"] . "</h3></center>";
                 }
             } else {
                 echo "No rank found for student ID: $student_id in $week";
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
 
         }
     } else {
-        echo "<center><h3 style='color: crimson'>No results found for student ID: " . $student_id . " and week: " . $week . "</h3></center>";
+        echo "<center><h3 css='color: crimson'>No results found for student ID: " . $student_id . " and week: " . $week . "</h3></center>";
     }
 }
 $conn->close();

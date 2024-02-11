@@ -1,5 +1,5 @@
 <?php
-require './includes/visitor.php';
+//require './includes/visitor.php';
 session_start();
 
 // Database connection
@@ -50,7 +50,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <script src="js/login.js"></script>
 </head>
 <body>
 <div class="container">
@@ -63,6 +64,7 @@ $conn->close();
         <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
+        <input type="checkbox" onclick="showPassword()">Show Password<br><br>
         <input type="submit" name="login" value="Login">
     </form>
 </div>
