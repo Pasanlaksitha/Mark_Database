@@ -6,9 +6,5 @@ The Student Marks Management System is a web-based application designed to manag
 + Retrieve Student Marks: Users can enter a student ID and select a week to view the marks for that student.
 + Display Rank: The system calculates and displays the rank of the student for the selected week based on their marks.
 + User-Friendly Interface: The web interface provides an intuitive and easy-to-use experience for users to interact with the system.
++ Admin Pannel to Register New Student ID's and input Marks 
 
-## Technologies Used
-+ Frontend: HTML, CSS
-+ Backend: PHP
-+ Database: MySQL
-+ Web Server: Apache (XAMPP)
