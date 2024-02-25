@@ -1,68 +1,71 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-h2, h3 {
-    color: #333;
-    text-align: center;
+h2,
+h3 {
+  color: #333;
+  text-align: center;
 }
 
 a {
-    color: #007BFF;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 form {
-    background-color: #fff;
-    margin: 20px auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    border-radius: 8px;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-input[type="number"], input[type="text"], select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
